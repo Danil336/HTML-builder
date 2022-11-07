@@ -1,17 +1,6 @@
 const fs = require("fs");
 const path = require("path");
 const readline = require("readline");
-// const EventEmitter = require("events");
-
-// const emitter = new EventEmitter();
-
-// emitter.on('string', content => {
-//   fs.appendFile(filePath, content, (err) => {
-//     if(err) {
-//       throw err
-//     }
-//   })
-// })
 
 const rl = readline.createInterface({
   input: process.stdin,

@@ -8,10 +8,13 @@ fs.readdir(filePath, 'utf-8', (err, content) => {
     throw err
   }
   content.forEach(file => {
-    if(fs.statSync(`${filePath}/${file}`).isFile()) {
-      console.log(
-        file.split('.').slice(0, -1).join(), '-', path.extname(file), '-', fs.statSync(`${filePath}/${file}`).size / 1000 + 'kb'
-      )
-    }
+    fs.stat(`${filePath}/${file}`, (err, stat) => {
+      if(err) throw err
+      if(stat.isFile()){
+        console.log(
+          file.split('.').slice(0, -1).join(), '-', path.extname(file), '-', stat.size / 1000 + 'kb'
+        )
+      }
+    
   });
-})
+})})
